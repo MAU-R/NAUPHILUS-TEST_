@@ -29,14 +29,12 @@ import RegisterView from '~/components/RegisterView.vue';
       class="z-0 top-[15vh] absolute inset-0  pointer-events-none w-full h-[10vh] blur-3xl opacity-70 bg-(--accent-normal)/50"
     />
     <section
-    class="flex flex-col items-center justify-center bg-(--bg-normal) w-full h-[90vh] -z-10"
+    class="flex flex-col items-center bg-(--bg-normal) w-full h-[90vh] -z-10"
     >
-    <h2>Explora nuestro widget para evaluación de prospectos</h2>
-    <p>Para empezar el proceso inicia sesion o registrate, nuestro sistema comenzara la evaluación de manera automatica y te guiara en los siguientes pasos</p>
-    <Transition
-        class=" min-h-[60vh] w-90/100 max-w-[1000px] p-2 lg:p-6 flex bg-(--background-dark-active) rounded-2xl border-2 border-(--accent-normal)"
-    >
-    <LoginView v-if="true"/>
+    <h2 class="mt-[3vh] mb-[0.2vh] text-2xl lg:text-3xl xl:text-5xl text-(--heading-lighter) w-90/100 md:w-90/100  text-center p-1 md:p-2 xl:p-4 z-20">Explora nuestro widget para evaluación de prospectos</h2>
+    <p class="mb-[5vh] text-md lg:text-lg xl:text-xl text-(--heading-normal-hover) w-90/100 md:w-2/3  text-center p-1 md:p-2 xl:p-4 z-20" >Para empezar el proceso inicia sesion o registrate, nuestro sistema comenzara la evaluación de manera automatica y te guiara en los siguientes pasos</p>
+    <Transition>
+    <LoginView v-if="false"/>
     <RegisterView v-else/>
     </Transition>
 
