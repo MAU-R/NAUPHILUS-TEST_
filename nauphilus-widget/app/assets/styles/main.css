@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+
+:root {
+  --font-sans: 'IBM Plex Sans', sans-serif;
+  --font-display: 'Sora', sans-serif;
+
+  /* === BACKGROUND === */
+  --bg-light: #e7e7e8;
+  --bg-light-hover: #dbdbdd;
+  --bg-light-active: #b4b5b8;
+  --bg-normal: #0e0f1a;
+  --bg-normal-hover: #0d0e17;
+  --bg-normal-active: #0b0c15;
+  --bg-dark: #0b0b14;
+  --bg-dark-hover: #080910;
+  --bg-dark-active: #06070c;
+
+  /* === ACCENT === */
+  --accent-light: #f2ebfd;
+  --accent-light-hover: #ebf1fc;
+  --accent-light-active: #d6c2f9;
+  --accent-normal: #7c3aed;
+  --accent-normal-hover: #7034d5;
+  --accent-normal-active: #632ebe;
+  --accent-dark: #5d2cb2;
+  --accent-dark-hover: #4a238e;
+  --accent-dark-active: #381a6b;
+
+  /* === PRIMARY === */
+  --primary-light: #e9fbfd;
+  --primary-light-hover: #def8fc;
+  --primary-light-active: #baf1fa;
+  --primary-normal: #22d3ee;
+  --primary-normal-hover: #1fbed6;
+  --primary-normal-active: #1ba9be;
+  --primary-dark: #1a9eb3;
+  --primary-dark-hover: #147f8f;
+  --primary-dark-active: #0f5f6b;
+
+  /* === HEADING === */
+  --heading-lighter: #f9fbfc;
+  --heading-light-hover: #f7fafc;
+  --heading-light-active: #f6f9fb;
+  --heading-normal: #f1f5f9;
+  --heading-normal-hover: #cdd0d4;
+  --heading-normal-active: #b0b3b6;
+  --heading-dark: #545657;
+  --heading-dark-hover: #3c3d3e;
+
+  /* === AUXILIARY === */
+  --aux-border: #1e293b;
+  --aux-error: #ef4444;
+  --aux-success: #10b981;
+}
+
+  body{
+    background-color: var(--primary-light);
+    color: var(--blue-normal);
+    font-family: 'Lato', sans-serif;
+  }
+  p, span{
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+
+  h1,h2,h3,h4,h5,h6{
+    font-family: 'Sora', sans-serif;
+  }
+
+  body{
+    background-color: #0e0f1a;
+  }
