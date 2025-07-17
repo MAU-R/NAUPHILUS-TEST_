@@ -89,7 +89,7 @@ function getRectClass(index: number) {
     hoveredSquare.value === index
       ? "fill-[color:var(--accent-light-active)]/10"
       : "fill-transparent",
-    "stroke-[color:var(--accent-dark)]/20",
+    "stroke-[color:var(--accent-dark)]/8",
     props.squaresClassName,
   );
 }

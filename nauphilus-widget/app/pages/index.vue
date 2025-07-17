@@ -29,7 +29,7 @@ import RegisterView from '~/components/RegisterView.vue';
     </section>
 
     <div
-      class="z-0 top-[15vh] absolute inset-0  pointer-events-none w-full h-[10vh] blur-3xl opacity-70 bg-(--accent-normal)/50"
+      class="z-2 top-[11vh] absolute inset-0  pointer-events-none w-full h-[6vh] blur-3xl opacity-70 bg-(--accent-normal)/50"
     />
       
     <section
