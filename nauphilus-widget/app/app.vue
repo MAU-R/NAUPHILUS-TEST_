@@ -4,8 +4,20 @@
   </NuxtLayout>
 </template>
 
-<script lang="ts" setup>
+
+
+<script setup>
+import { useAuthStore } from '~/stores/auth'
+
+const auth = useAuthStore()
+
+onMounted(async () => {
+
+  await auth.getApiKeys()
+
+})
 </script>
+
 
 <style>
 .fade-enter-active, .fade-leave-active {

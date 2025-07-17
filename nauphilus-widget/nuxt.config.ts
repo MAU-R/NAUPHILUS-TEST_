@@ -3,7 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxt/eslint', '@nuxt/image', '@nuxt/ui',],
+  modules: ['@pinia/nuxt', '@nuxt/eslint', '@nuxt/image', '@nuxt/ui', '@pinia/nuxt'],
     vite: {
     plugins: [
       tailwindcss(),
@@ -13,4 +13,11 @@ export default defineNuxtConfig({
     preference: "dark",
   },
   css: ['~/assets/styles/main.css'],
+
+    runtimeConfig: {
+    membershipKey: process.env.membershipKey,
+    productKey: process.env.productKey,
+  },
+  ssr:true
+
 })

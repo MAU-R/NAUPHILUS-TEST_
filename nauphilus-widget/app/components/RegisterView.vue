@@ -17,6 +17,7 @@
 
     <div class="register-div w-full px-4 pb-8">
       <UForm
+      :state="form"
         class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-6 w-full"
         @submit.prevent="onSubmit"
       >

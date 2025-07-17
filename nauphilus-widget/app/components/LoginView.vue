@@ -20,7 +20,7 @@
         </p>
       </div>
 
-      <UForm class="w-full max-w-md space-y-2" @submit.prevent="onLogin">
+      <UForm :state="loginForm" class="w-full max-w-md space-y-2" @submit.prevent="onLogin">
         <div class="mb-6">
          <label
             class="block text-sm font-medium mb-1 text-(--accent-light-hover)"
@@ -53,10 +53,10 @@
         >
             <button
         type="submit"
-        class="w-35/100 rounded-xl bg-(--primary-normal)/80 text-(--heading-normal) self-center p-2 hover:border-2 hover:border-(--primary-light-active/80) hover:bg(--primary-dark) transition-all duration-300 ease-in-out"
+        class="cursor-pointer w-35/100 rounded-xl bg-(--primary-normal)/80 text-(--heading-normal) self-center p-2 hover:border-2 hover:border-(--primary-light-active/80) hover:bg(--primary-dark) transition-all duration-300 ease-in-out"
         @click="onLogin"
         >
-        registrarse
+        Iniciar sesión
         </button>
     </div>
       </UForm>
@@ -74,6 +74,11 @@
 <script setup>
 import { reactive } from 'vue'
 import bgImage from '~/assets/img/loginImg.png'
+import { useRouter } from 'vue-router'
+import { useAuthStore } from '~/stores/auth'
+
+const router = useRouter()
+const auth = useAuthStore()
 
 defineProps({
   goToRegister: Function
@@ -89,6 +94,12 @@ const customInput = {
 }
 
 function onLogin() {
-  console.log('Login con:', loginForm)
+  // Supón que validaste los datos correctamente
+  auth.login({
+    apiClientId: loginForm.email,
+    apiClientSecret: loginForm.password,
+  })
+
+  router.push('/')
 }
 </script>
