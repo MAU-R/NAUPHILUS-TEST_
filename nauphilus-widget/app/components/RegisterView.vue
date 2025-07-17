@@ -1,7 +1,7 @@
 <template>
 
     <section
-    class="flex  min-h-[55vh] w-90/100 max-w-[1000px] bg-(--background-dark-active) rounded-2xl border-2 border-(--accent-normal)"
+    class="z-20 flex  min-h-[55vh] w-90/100 max-w-[1100px] bg-(--bg-normal-active) rounded-2xl border-2 border-(--accent-normal)"
     >
     <div class="flex-flex-col justify-center items-center w-full mt-2">
         <h3
