@@ -42,7 +42,6 @@ const router = useRouter()
 const auth = useAuthStore()
 
 function initNauphilus() {
-  console.log("Empezamos?")
   const options={
     appendTo: 'Nauphilus_container2',
     width: '100%',
@@ -59,7 +58,6 @@ function initNauphilus() {
     productKey: auth.productKey,
     idProspect:'auth.user?.apiClientId',
   }
-  console.log(options)
   window.NauphilusIframe.widgetShow({...options})
 }
 
@@ -77,7 +75,6 @@ onMounted(async () => {
   const interval = setInterval(() => {
     if (window.NauphilusIframe?.widgetShow) {
       clearInterval(interval)
-      console.log("Ejecutamos esto?")
       initNauphilus()
     }
   }, 100)
