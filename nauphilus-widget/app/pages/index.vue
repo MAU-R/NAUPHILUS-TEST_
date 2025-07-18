@@ -13,7 +13,7 @@
     <div class="ml-4 md:ml-auto h-full flex lg:w-25/100 w-2/3 gap-lg justify-end  items-center">
         <button
         type="button"
-        class=" cursor-pointer mr-2 w-1/2 md:w-30/100 lg:w-45/100 h-full text-(--heading-dark) bg-(--aux-error) text-center rounded-full "
+        class=" cursor-pointer mr-2 w-1/2 md:w-30/100 lg:w-45/100 h-full text-(--heading-light-active) bg-(--aux-error) text-center rounded-full "
         @click="logOut"
         >Cerrar Sesion</button>
     </div>
@@ -28,7 +28,7 @@
     >
       <div
       id="Nauphilus_container2"
-    class="p-2 min-h-[60vh] z-20 w-90/100 max-w-[90vw] flex bg-(--bg-dark-active) rounded-2xl border-2 border-(--accent-normal)"
+    class="p-2  z-20 w-90/100 max-w-[90vw] flex bg-(--bg-dark-active) rounded-2xl border-2 border-(--accent-normal)"
   />
     </section>
     </article>
