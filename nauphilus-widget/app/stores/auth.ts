@@ -14,14 +14,13 @@ export const useAuthStore = defineStore('auth', {
     async getApiKeys(){
         if (!this.keyRegistry) {
     try {
-      const { data, error } = await useFetch('/api/widget-config')
-
-      if (error.value) {
-        console.error('Error al cargar config del widget:', error.value)
+      const response = await useFetch('/api/widget-config')
+      if (response.error.value) {
+        console.error('Error al cargar config del widget:', response.error.value)
       } else {
         this.keyRegistry=true
-        this.productKey=data.productKey
-        this.membershipKey=data.membershipKey
+        this.productKey=response.data?.value?.productKey ?? ''
+        this.membershipKey=response.data?.value?.membershipKey ?? ''
       }
     } catch (e) {
       console.error('Fallo al obtener config del widget:', e)

@@ -14,7 +14,7 @@
         <button
         type="button"
         class=" cursor-pointer mr-2 w-1/2 md:w-30/100 lg:w-45/100 h-full text-(--heading-dark) bg-(--aux-error) text-center rounded-full "
-        @click="showRegister"
+        @click="logOut"
         >Cerrar Sesion</button>
     </div>
     </section>
@@ -24,31 +24,75 @@
     />
       
     <section
-    class=" relative  flex flex-col items-center bg-(--bg-normal) w-full min-h-[95vh] "
+    class="flex flex-col items-center bg-(--bg-normal) w-full min-h-[95vh] justify-center"
     >
       <div
-    class="min-h-[55vh] z-20 w-90/100 max-w-[1000px] flex bg-(--bg-dark-active) rounded-2xl border-2 border-(--accent-normal)"
-  >
-<!--Aqui va el widget-->
-</div>
+      id="Nauphilus_container2"
+    class="p-2 min-h-[60vh] z-20 w-90/100 max-w-[90vw] flex bg-(--bg-dark-active) rounded-2xl border-2 border-(--accent-normal)"
+  />
     </section>
     </article>
 
 </template>
-<script lang="ts" >
+<script setup >
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '~/stores/auth'
 
 const router = useRouter()
 const auth = useAuthStore()
 
+function initNauphilus() {
+  console.log("Empezamos?")
+  const options={
+    appendTo: 'Nauphilus_container2',
+    width: '100%',
+    height: '100%',
 
-const currentView = ref<'login' | 'register'>('login')
+    listener: result => console.log('listener', result),
+    errorHandler: err => console.error('Error Nauphilus', err),
+
+    credentials: {
+      membershipKey: auth.membershipKey,
+      apiClientID: auth.user?.apiClientId,
+      apiClientSecretKey: auth.user?.apiClientSecret,
+    },
+    productKey: auth.productKey,
+    idProspect:'auth.user?.apiClientId',
+  }
+  console.log(options)
+  window.NauphilusIframe.widgetShow({...options})
+}
+
+
+onMounted(async () => {
+  await auth.getApiKeys()
+    if (!window.NauphilusIframe) {
+    const d = document.createElement('script')
+    d.type = 'text/javascript'
+    d.id = 'Nauphilus'
+    d.async = true
+    d.src = `https://www.nauphilus.com/api/widget/nauphilus-widget.js?stamp=${new Date().getTime()}`
+    document.getElementsByTagName('script')[0].parentNode?.insertBefore(d, document.getElementsByTagName('script')[0])
+  }
+  const interval = setInterval(() => {
+    if (window.NauphilusIframe?.widgetShow) {
+      clearInterval(interval)
+      console.log("Ejecutamos esto?")
+      initNauphilus()
+    }
+  }, 100)
+})
+
 
 function logOut(){
 auth.logout()
 router.push('/login')
 }
+
+
+onBeforeUnmount(()=>{
+  window.NauphilusIframe.widgetClose({closeAll:true})
+})
 
 </script>
 <style>
