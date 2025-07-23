@@ -38,7 +38,7 @@
       squares-class-name="fill-current text-gray-300"
     />
     <h2 class="mt-[2vh] mb-[0.2vh] text-xl lg:text-2xl xl:text-4xl text-(--heading-lighter) w-90/100 md:w-90/100  text-center p-1 md:p-2 xl:p-4 z-20">Explora nuestro widget para evaluación de prospectos</h2>
-    <p class="mb-[3vh] text-md lg:text-lg xl:text-xl text-(--heading-normal-hover) w-90/100 md:w-2/3  text-center p-1 md:p-2 xl:p-4 z-20" >Para empezar el proceso inicia sesion o registrate, nuestro sistema comenzara la evaluación de manera automatica y te guiara en los siguientes pasos</p>
+    <p class="mb-[3vh] text-md lg:text-lg xl:text-xl text-(--heading-normal-hover) w-90/100 md:w-2/3  text-center p-1 md:p-2 xl:p-4 z-20" >Para comenzar, inicia sesión o regístrate. Nuestro sistema comenzará la evaluación de manera automática y te guiará en los siguientes pasos.</p>
     <Transition
       name="fade-slide"
   mode="out-in"
