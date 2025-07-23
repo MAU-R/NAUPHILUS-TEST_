@@ -13,7 +13,7 @@
     <div class="ml-4 md:ml-auto h-full flex lg:w-25/100 w-2/3 gap-lg justify-end  items-center">
         <button
         type="button"
-        class=" cursor-pointer mr-2 w-1/2 md:w-30/100 lg:w-45/100 h-full text-(--heading-light-active) bg-(--aux-error) text-center rounded-full "
+        class=" cursor-pointer mr-2 w-1/2 md:w-30/100 lg:w-45/100 h-full text-(--heading-light-active) bg-(--aux-error) text-center rounded-full min-h-[35px]!"
         @click="logOut"
         >Cerrar Sesion</button>
     </div>
@@ -41,7 +41,7 @@ import Swal from 'sweetalert2'
 
 const router = useRouter()
 const auth = useAuthStore()
-
+const isLoggingOut = ref(false)
 function initNauphilus() {
   const options={
     appendTo: 'Nauphilus_container2',
@@ -50,6 +50,7 @@ function initNauphilus() {
 
     listener: result => console.log('listener', result),
       errorHandler: async (err) => {
+        if (isLoggingOut.value) return
       console.error('Nauphilus error:', err)
       await Swal.fire({
         icon: 'error',
@@ -103,6 +104,7 @@ onMounted(async () => {
 
 
 function logOut(){
+  isLoggingOut.value = true
   try{
 auth.logout()
 window.NauphilusIframe.widgetClose({closeAll:true})
@@ -117,6 +119,7 @@ window.NauphilusIframe.widgetClose({closeAll:true})
 
 
 onBeforeUnmount(()=>{
+  isLoggingOut.value = true
    window.sessionStorage.setItem('forceReloadAfterLogout', '1')
   window.NauphilusIframe.widgetClose({closeAll:true})
 })

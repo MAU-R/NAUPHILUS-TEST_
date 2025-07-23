@@ -52,7 +52,7 @@
             class="w-35/100 rounded-xl self-center p-2 transition-all duration-300 ease-in-out
               text-(--heading-normal) bg-(--primary-normal)/80 hover:border-2 hover:border-(--primary-light-active/80)
               hover:bg-(--primary-dark)
-              disabled:opacity-50 disabled:cursor-not-allowed"
+              disabled:opacity-50 disabled:cursor-not-allowed min-w-[150px]"
             @click="onLogin"
           >
             Iniciar sesión
