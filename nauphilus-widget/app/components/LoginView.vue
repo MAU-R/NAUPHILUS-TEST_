@@ -19,7 +19,7 @@
         <p
           class="text-md lg:text-lg xl:text-xl text-(--heading-normal-hover) w-full text-center p-1 md:p-2 xl:p-4"
         >
-          Ingresa tus credenciales e inicia sesión para comenzar con el proceso de evaluación
+          Ingresa tus datos para registrarte de manera automatica
         </p>
       </div>
 
@@ -59,17 +59,6 @@
           </button>
         </div>
       </UForm>
-
-      <div class="text-sm text-center text-(--heading-normal-hover) mt-auto mb-4">
-        ¿No tienes cuenta?
-        <a
-          href="#"
-          class="underline hover:text-(--primary-dark) text-(--primary-normal)"
-          @click.prevent="goToRegister"
-        >
-          Regístrate aquí
-        </a>
-      </div>
     </div>
   </section>
 </template>

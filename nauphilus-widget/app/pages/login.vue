@@ -11,11 +11,6 @@
         NAUPHILUS
     </h1>
     <div class="ml-4 md:ml-auto h-full flex lg:w-25/100 w-2/3 gap-lg justify-end  items-center">
-        <button
-        type="button"
-        class="min-h-[35px] cursor-pointer mr-2 w-1/2 md:w-30/100 lg:w-45/100 h-full text-(--heading-dark) bg-(--primary-light-hover) text-center rounded-full  border-2 border-(--primary-light-active)"
-        @click="showRegister"
-        >Sign - In</button>
                 <button
                 
         class="min-h-[35px] cursor-pointer ml-2 w-1/2 md:w-30/100 lg:w-45/100 h-full text-(--heading-lighter) bg-(--primary-normal-hover) text-center rounded-full  border-2 border-(--primary-normal-active)"

@@ -48,7 +48,7 @@ function initNauphilus() {
     width: '100%',
     height: '75vh',
 
-    listener: result => console.log('listener', result),
+    listener: result => console.log('listener', JSON.stringify(result)),
       errorHandler: async (err) => {
         if (isLoggingOut.value) return
       console.error('Nauphilus error:', err)
@@ -73,10 +73,14 @@ function initNauphilus() {
     credentials: {
       membershipKey: auth.membershipKey,
       apiClientID: auth.clientId,
-      apiClientSecretKey: auth.user?.apiClientSecret,
+      apiClientSecretKey: auth.clientSecret,
     },
     productKey: auth.productKey,
     idProspect: auth.user.apiClientId,
+    prospect:{
+      email: auth.user.apiClientId,
+      password: auth.user.apiClientSecret
+    },
     isNew:true
   }
  console.log(options)
