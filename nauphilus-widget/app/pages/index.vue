@@ -37,6 +37,7 @@
 <script setup >
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '~/stores/auth'
+import Swal from 'sweetalert2'
 
 const router = useRouter()
 const auth = useAuthStore()
@@ -45,19 +46,39 @@ function initNauphilus() {
   const options={
     appendTo: 'Nauphilus_container2',
     width: '100%',
-    height: '100%',
+    height: '75vh',
 
     listener: result => console.log('listener', result),
-    errorHandler: err => console.error('Error Nauphilus', err),
+      errorHandler: async (err) => {
+      console.error('Nauphilus error:', err)
+      await Swal.fire({
+        icon: 'error',
+        title: 'Error iniciando widget',
+        text: err?.message || 'Ocurrió un error inesperado.',
+        confirmButtonText: 'Aceptar',
+      })
+
+      try {
+        auth.logout()
+        window.NauphilusIframe.widgetClose({closeAll:true})
+      } catch (logoutErr) {
+        console.error('Logout error:', logoutErr)
+      } finally {
+          
+        router.push('/login')
+      }
+    },
 
     credentials: {
       membershipKey: auth.membershipKey,
-      apiClientID: auth.user?.apiClientId,
+      apiClientID: auth.clientId,
       apiClientSecretKey: auth.user?.apiClientSecret,
     },
     productKey: auth.productKey,
-    idProspect:'auth.user?.apiClientId',
+    idProspect: auth.user.apiClientId,
+    isNew:true
   }
+ console.log(options)
   window.NauphilusIframe.widgetShow({...options})
 }
 
@@ -82,12 +103,21 @@ onMounted(async () => {
 
 
 function logOut(){
+  try{
 auth.logout()
-router.push('/login')
+window.NauphilusIframe.widgetClose({closeAll:true})
+  }catch(err){
+    console.error(err)
+  }
+  finally{
+  router.push('/login')
+  }
+
 }
 
 
 onBeforeUnmount(()=>{
+   window.sessionStorage.setItem('forceReloadAfterLogout', '1')
   window.NauphilusIframe.widgetClose({closeAll:true})
 })
 

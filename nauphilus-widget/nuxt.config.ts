@@ -17,6 +17,8 @@ export default defineNuxtConfig({
     runtimeConfig: {
     membershipKey: process.env.membershipKey,
     productKey: process.env.productKey,
+    clientId: process.env.clientId,
+    clientSecret: process.env.clientSecret
   },
   ssr:true
 

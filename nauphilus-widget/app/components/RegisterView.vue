@@ -49,7 +49,8 @@
         <div class="col-span-1 md:col-span-2 flex justify-center mt-4">
           <button
             type="submit"
-            class="w-2/3 sm:w-1/2 md:w-1/3 rounded-xl bg-(--primary-normal)/80 text-(--heading-normal) p-2 hover:border-2 hover:border-(--primary-light-active/80) hover:bg-(--primary-dark) transition-all duration-300 ease-in-out"
+            class="disabled w-2/3 sm:w-1/2 md:w-1/3 rounded-xl bg-(--primary-normal)/80 text-(--heading-normal) p-2 hover:border-2 hover:border-(--primary-light-active/80) hover:bg-(--primary-dark) transition-all duration-300 ease-in-out"
+            disabled:true
             @click="onSubmit"
           >
             Registrarse

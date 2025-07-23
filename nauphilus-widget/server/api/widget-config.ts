@@ -7,7 +7,9 @@ export default defineEventHandler((event) => {
   return {
     membershipKey: config.membershipKey ?? "ah",
     productKey: config.productKey,
-    message:"holibirips"
+    message:"holibirips",
+    clientId:config.clientId,
+    clientSecret: config.clientSecret
   }
   
 })

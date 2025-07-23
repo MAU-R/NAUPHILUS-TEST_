@@ -96,7 +96,12 @@ const customInput = {
   base: 'text-gray-800 font-bold bg-(--accent-light-hover)/80 text-center border-2 border-(--accent-light-active) rounded-lg w-full p-1 font-sans'
 }
 
-
+onMounted(() => {
+  if (window.sessionStorage.getItem('forceReloadAfterLogout')) {
+    window.sessionStorage.removeItem('forceReloadAfterLogout')
+    window.location.reload()
+  }
+})
 const isFormValid = computed(() => {
   return loginForm.email.trim() !== '' && loginForm.password.trim() !== ''
 })

@@ -5,7 +5,9 @@ export const useAuthStore = defineStore('auth', {
     user: null as null | { apiClientId: string, apiClientSecret: string },
     keyRegistry: false,
     productKey: '' as string,
-    membershipKey: '' as string
+    membershipKey: '' as string,
+    clientId: '' as string,
+    clientSecret: '' as string
   }),
   getters: {
     isLoggedIn: (state) => !!state.user,
@@ -21,6 +23,8 @@ export const useAuthStore = defineStore('auth', {
         this.keyRegistry=true
         this.productKey=response.data?.value?.productKey ?? ''
         this.membershipKey=response.data?.value?.membershipKey ?? ''
+        this.clientId = response.data?.value?.clientId ?? ''
+        this.clientSecret = response.data?.value?.clientSecret?? ''
       }
     } catch (e) {
       console.error('Fallo al obtener config del widget:', e)
